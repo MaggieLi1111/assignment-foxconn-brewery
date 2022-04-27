@@ -1,11 +1,62 @@
-.App {
-  text-align: center;
+
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: rgb(47, 70, 62);
+  color: rgb(242, 242, 248);
+  font-family: 'Bitter', serif;
+  padding: 60px;
+}
+.container {
+  border: 2px solid rgb(210, 210, 210);
+  border-radius: 4px;
+  box-shadow: 0px 1px 6px -2px rgb(85, 83, 83);
+  padding: 48px;
+  background-color: white;
+  margin-bottom: 24px;
+}
+h1, h2, h3, h4 {
+  color: rgb(49, 209, 115);
+}
+h1 {
+  font-size: 4rem;
+  margin-bottom: 4rem;
+}
+h2 {
+  font-size: 3rem;
+  margin-bottom: 3rem;
+}
+label {
+  display: flex;
+  justify-content: center;
+}
+input, select, button {
+  height: 2rem;
+  width: 150px;
+  margin: 8px;
+}
+button {
+  color: rgb(247, 246, 242);
+  background-color: rgb(105, 172, 60);
+  border: 1px solid rgb(243, 247, 244);
+
+  &:disabled {
+    cursor: not-allowed;
+    color: darkgray;
+    border-color: darkgray;
+  }
+}
+.submit {
+  display: flex;
+  justify-content: space-evenly;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.error-text {
+  color: red;
+  font-size: 20px;
 }
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -15,7 +66,7 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 20vh;
   display: flex;
   flex-direction: column;
   align-items: center;

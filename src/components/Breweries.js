@@ -17,13 +17,13 @@ export default function Breweries(props) {
                 <label>City
                     <select value={values.city} name="city" onChange={onChange}>
                         <option value="">--Select a city--</option>
-                        <option value="Algoma">--</option>
-                        <option value="Glendale">--</option>
-                        <option value="Milwaukee">--</option>
-                        <option value="New Richmond">--</option>   
-                        <option value="Reedsburg">--</option>
-                        <option value="Sheboygan">--</option>
-                        <option value="Whitewater">--</option>
+                        <option value="Algoma">Algoma</option>
+                        <option value="Glendale">Glendale</option>
+                        <option value="Milwaukee">Milwaukee</option>
+                        <option value="New Richmond">New Richmond</option>   
+                        <option value="Reedsburg">Reedsburg</option>
+                        <option value="Sheboygan">Sheboygan</option>
+                        <option value="Whitewater">Whitewater</option>
                     </select>
                 </label>
                 <label>Type

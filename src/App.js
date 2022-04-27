@@ -12,8 +12,9 @@ const initialFormValue = {
 
 function App() {
 
-  const [BreweriesList, setBreweriesList] = useState([]);
+
   const [formValues, setFormValues] = useState(initialFormValue);
+  const [breweriesList, setBreweriesList] = useState([]);
 
 
   const onChange = (inputName, inputValue) => {
@@ -29,7 +30,7 @@ function App() {
     }
     axios.post("", newBrewery)
     .then(res => {
-      setBreweriesList();
+      setBreweriesList({...breweriesList,newBrewery});
       setFormValues(initialFormValue);
     })
     .catch(err=> {
@@ -39,6 +40,9 @@ function App() {
 
   useEffect(() => {
     axios.get(`https://api.openbrewerydb.org/breweries?by_city=${formValues.city}`)
+    .then(res=> {
+      setFormValues(res.data);
+    })
   },[])
 
 
@@ -48,13 +52,14 @@ function App() {
         <h1>Breweries List</h1>
       </header>
       <Breweries values={formValues} update={onChange} submit={onsubmit} />
-      {breweries.map(brewery => {
+      {breweriesList.map(brewery => {
         return (<Brewery key={brewery.id} details={brewery} />)
       })}
-
     </div>
   );
 }
 
 
 export default App;
+
+
