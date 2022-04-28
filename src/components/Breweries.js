@@ -5,7 +5,7 @@ export default function Breweries(props) {
 
     const onSubmit = event => {
         event.preventDefault();
-        submit()
+        submit();
     }
     const onChange = (event) => {
         update(event.target.name, event.target.value);
@@ -42,7 +42,7 @@ export default function Breweries(props) {
                     </select>
                 </label>
                 <div className="submit">
-                    <button disabled={!values.city || !values.type}>Submit</button>
+                    <button>Submit</button>
                 </div>
             </div>
         </form>

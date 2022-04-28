@@ -13,6 +13,8 @@ export default function Brewery(props){
             <h2>{details.name}</h2>
             <p>Brewery Type: {details.brewery_type}</p>
             <p>Street: {details.street}</p>
+            <p>City: {details.city}</p>
+            <p>State: {details.state}</p>
             <p>Phone: {details.phone}</p>
             <p>Website: {details.website_url}</p>
         </div>

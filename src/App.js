@@ -24,13 +24,16 @@ function App() {
   }
 
   const onSubmit = () => {
-    const newBrewery = {
-      city:formValues.city,
-      type:formValues.type
-    }
-    axios.post("", newBrewery)
+    axios.get(`https://api.openbrewerydb.org/breweries?by_city=${formValues.city}`)
     .then(res => {
-      setBreweriesList({...breweriesList,newBrewery});
+      console.log(res)
+      setBreweriesList(res.data);
+      setFormValues(initialFormValue);
+    })
+    axios.get(`https://api.openbrewerydb.org/breweries?by_type=${formValues.type}`)
+    .then(res => {
+      console.log(res)
+      setBreweriesList(res.data);
       setFormValues(initialFormValue);
     })
     .catch(err=> {
@@ -39,9 +42,9 @@ function App() {
   }
 
   useEffect(() => {
-    axios.get(`https://api.openbrewerydb.org/breweries?by_city=${formValues.city}`)
+    axios.get("https://api.openbrewerydb.org/breweries?by_city=milwaukee")
     .then(res=> {
-      setFormValues(res.data);
+      setBreweriesList(res.data);
     })
   },[])
 
@@ -51,7 +54,7 @@ function App() {
       <header className="App-header">
         <h1>Breweries List</h1>
       </header>
-      <Breweries values={formValues} update={onChange} submit={onsubmit} />
+      <Breweries values={formValues} update={onChange} submit={onSubmit} />
       {breweriesList.map(brewery => {
         return (<Brewery key={brewery.id} details={brewery} />)
       })}
